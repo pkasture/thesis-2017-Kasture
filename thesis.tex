@@ -1,0 +1,65 @@
+\documentclass[accentcolor=tud0b,11pt,paper=a4,bigchapter,twoside]{tudreport}
+
+
+\title{The Title Of Your Thesis Should Be Inserted Here}
+\newcommand{\titleDE}[0]{Hier sollte der deutsche Titel stehen}
+\newcommand{\yourName}[0]{Max Mustermann}
+\newcommand{\yourCourseOfStudies}[0]{Master of Science}
+\newcommand{\yourAdvisor}[0]{Sebastian Proksch, M.Sc.}
+\newcommand{\yourSubmissionDate}[0]{31.01.2017}
+
+
+
+\input{doc/preface}
+
+
+\begin{document}
+% front page
+\pagenumbering{roman}%
+\maketitle%
+% declaration
+\input{chapter/declaration}%
+\cleardoublepage%
+% abstract
+\input{chapter/abstract}%
+\cleardoublepage%
+% table of contents
+\renewcommand\contentsname{Table of Contents}%
+\tableofcontents%
+\cleardoublepage%
+\pagenumbering{arabic}%
+
+
+% It is recommended to put chapters into different files
+\input{chapter/1-introduction}
+
+% ... but it is up to you how you organize your files.
+\chapter{Overview}
+\chapter{Details}
+\input{chapter/4-implementation}
+\chapter{Evaluation}
+\chapter{Related work}
+\chapter{Summary}
+
+\appendix
+
+% glossary
+\input{doc/glossary}
+
+% list of figures
+\newpage
+\renewcommand{\listfigurename}[0]{List of Figures}
+\addcontentsline{toc}{chapter}{\listfigurename}
+\listoffigures
+\todo{The list of figures is optional, you can remove it if you don't feel the need.}
+
+% bibliography
+\newpage
+\singlespacing
+\renewcommand{\bibname}{References}
+\addcontentsline{toc}{chapter}{\bibname}
+%\nocite{*}
+\bibliographystyle{is-alpha}
+\bibliography{doc/references}
+
+\end{document}
